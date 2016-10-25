@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shopular">
+  <head>
+    <meta charset="utf-8">
+    <title>Shopular</title>
+    <link rel="stylesheet" href="lib/styles/main.min.css">
+    <link rel="stylesheet" href="lib/styles/reset.css">
+  </head>
+  <body ng-controller="shopCtrl as shop">
+    <main>
+      <table class="table-striped">
+          <tr class='table-header'>
+            <th>Name</th><th>Price</th><th>Quantity</th><th>Color</th>
+          </tr>
+          <tr ng-repeat="item in shop.allItems" ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
+            <td class="item-name">{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.color}}</td>
+          </tr>
+      </table>
+
+    </main>
+    <script src="src/js/vendor/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="src/js/app.js"></script>
+  </body>
+</html>
