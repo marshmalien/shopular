@@ -17,6 +17,7 @@
       { "id": 533, "name": "eggs", "price": 5, "quantity": 12, "color": "brown", "discount": 1 },
       { "id": 683, "name": "pillow", "price": 27, "quantity": 10, "color": "black", "discount": 12 }
     ];
+    
     this.locale = 'US';
 
     this.tax = 1.0575;

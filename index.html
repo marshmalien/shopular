@@ -19,10 +19,10 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in shop.allItems" ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
-            <td class="item-name">{{shop.itemName(item)}}</td>
-            <td>{{shop.priceOf(item)}}<img ng-show="{{shop.isDiscounted(item)}}"></img></td>
-            <td>{{item.quantity}}</td>
-            <td>{{item.color}}</td>
+            <td class="item-name"><input ng-model="item.name" type="text"></input>{{shop.itemName(item)}}</td>
+            <td><input ng-model="item.price" type="text"></input>{{shop.priceOf(item)}}<img ng-show="{{shop.isDiscounted(item)}}"></img></td>
+            <td><input ng-model="item.quantity" type="text"></input>{{item.quantity}}</td>
+            <td><input ng-model="item.color" type="text"></input>{{item.color}}</td>
           </tr>
         </tbody>
       </table>
