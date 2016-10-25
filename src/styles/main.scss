@@ -34,6 +34,9 @@ table {
     }
     th {
       height: 40px;
+      &:last-of-type {
+        padding-right: 2%;
+      }
     }
   }
 }
@@ -64,11 +67,17 @@ tbody {
   }
 }
 img {
-  content: url('../../images/discount.png');
-  height: 20px;
-  width: 20px;
-  margin-left: 5%;
-  background-size: contain;
+  &.discount-icon {
+    content: url('../../images/discount.png');
+    height: 20px;
+    width: 20px;
+    margin-left: 5%;
+    background-size: contain;
+  }
+  &.edit-icon {
+    content: url('../../images/edit.png');
+    padding-right: 4%;
+  }
 }
 #currency-button {
   position: absolute;
@@ -84,5 +93,17 @@ img {
 
   &.spin {
     transform: rotateX(180deg);
+  }
+}
+input {
+  height: 100%;
+  width: 80%;
+}
+form {
+  margin: 0 25vw;
+  width: 50vw;
+  text-align: center;
+  input {
+    width: 100%;
   }
 }

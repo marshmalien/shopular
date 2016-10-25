@@ -14,18 +14,59 @@
       <table>
         <thead>
           <tr class='table-header'>
-            <th>Name</th><th>Price</th><th>Quantity</th><th>{{shop.locale === 'US' ? 'Color' : 'Colour'}}</th>
+            <th>Name</th><th>Price</th><th>Quantity</th><th>{{shop.locale === 'US' ? 'Color' : 'Colour'}}</th><th>Edit</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="item in shop.allItems" ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
-            <td class="item-name"><input ng-model="item.name" type="text"></input>{{shop.itemName(item)}}</td>
-            <td><input ng-model="item.price" type="text"></input>{{shop.priceOf(item)}}<img ng-show="{{shop.isDiscounted(item)}}"></img></td>
-            <td><input ng-model="item.quantity" type="text"></input>{{item.quantity}}</td>
-            <td><input ng-model="item.color" type="text"></input>{{item.color}}</td>
+
+            <td ng-hide="editing" class="item-name">{{shop.itemName(item)}}</td>
+            <td ng-show="editing" ng-blur="editing = false;"><input ng-change="item.edited = true" ng-model="item.name" type="text"></input></td>
+
+            <td ng-hide="editing" class="item-price">{{shop.priceOf(item)}}<img class="discount-icon" ng-show="{{shop.isDiscounted(item)}}"></img></td>
+            <td ng-show="editing" ng-blur="editing = false;"><input  ng-model="item.price" type="text"></input></td>
+
+            <td ng-hide="editing" class="item-quantity">{{item.quantity}}</td>
+            <td ng-show="editing" ng-blur="editing = false;"><input ng-model="item.quantity" type="text"></input></td>
+
+            <td ng-hide="editing" class="item-color">{{item.color}}
+            <td ng-show="editing" ng-blur="editing = false;"><input ng-model="item.color" type="text"></input></td>
+            <td ng-click="editing = !editing"><img class="edit-icon"></img></td>
           </tr>
         </tbody>
       </table>
+
+      <div>
+        <form  ng-submit="shop.addNewItem()" novalidate>
+          <!-- NAME -->
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="shop.newItem.name" required/>
+          </div>
+          <!-- PRICE -->
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price" class="form-control" ng-model="shop.newItem.price" required/>
+          </div>
+            <!-- DISCOUNT -->
+          <div class="form-group">
+            <label>Discount</label>
+            <input type="text" class="form-control" ng-model="shop.newItem.discount" required/>
+          </div>
+          <!-- QUANTITY -->
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="text" class="form-control" ng-model="shop.newItem.quantity" required/>
+          </div>
+          <!-- COLOR -->
+          <div class="form-group">
+            <label>Color</label>
+            <input type="text" class="form-control" ng-model="shop.newItem.color" required/>
+          </div>
+
+          <input type="submit" id="submit" value="Submit"/>
+        </form>
+      </div>
 
     </main>
     <script src="src/js/vendor/jquery-3.1.1.min.js"></script>

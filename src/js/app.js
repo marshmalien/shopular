@@ -17,10 +17,19 @@
       { "id": 533, "name": "eggs", "price": 5, "quantity": 12, "color": "brown", "discount": 1 },
       { "id": 683, "name": "pillow", "price": 27, "quantity": 10, "color": "black", "discount": 12 }
     ];
-    
-    this.locale = 'US';
 
+    this.locale = 'US';
     this.tax = 1.0575;
+
+    this.addNewItem = function() {
+      this.allItems.push({
+        name: this.newItem.name,
+        price: this.newItem.price,
+        quantity: this.newItem.quantity,
+        color: this.newItem.color,
+        discount: this.newItem.discount
+      });
+    };
 
     this.itemName = function(item) {
       if (this.locale === 'UK' && item.name === 'waste basket') {
