@@ -38,15 +38,18 @@
 
     this.isDiscounted = function(item) {
       return item.discount > 0;
-    }
+    };
 
     this.toggleLocale = function() {
+      var spinButton = document.getElementById('currency-button');
+
       if (this.locale === 'US') {
         this.locale = 'UK';
+        spinButton.className = 'spin';
       } else {
         this.locale = 'US';
+        spinButton.className = '';
       }
-    }
-
+    };
   });
 })();
