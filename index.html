@@ -3,21 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Shopular</title>
-    <link rel="stylesheet" href="lib/styles/main.min.css">
     <link rel="stylesheet" href="lib/styles/reset.css">
+    <link rel="stylesheet" href="lib/styles/main.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre|Montserrat|Lobster|Pacifico" rel="stylesheet">
   </head>
   <body ng-controller="shopCtrl as shop">
     <main>
-      <table class="table-striped">
+      <h1>Shopular</h1>
+      <div class="currency-button"></div>
+      <table>
+        <thead>
           <tr class='table-header'>
             <th>Name</th><th>Price</th><th>Quantity</th><th>Color</th>
           </tr>
+        </thead>
+        <tbody>
           <tr ng-repeat="item in shop.allItems" ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
             <td class="item-name">{{item.name}}</td>
-            <td>{{item.price}}</td>
+            <td>{{shop.priceOf(item)}}<img ng-show="{{shop.isDiscounted(item)}}"></img></td>
             <td>{{item.quantity}}</td>
             <td>{{item.color}}</td>
           </tr>
+        </tbody>
       </table>
 
     </main>
