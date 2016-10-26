@@ -37,34 +37,54 @@
       </table>
 
       <div>
-        <form  ng-submit="shop.addNewItem()" novalidate>
+        <form name="shop.newItemForm" ng-submit="shop.addNewItem()" novalidate>
           <!-- NAME -->
-          <div class="form-group">
+          <div class="form-group" >
             <label>Name</label>
-            <input type="text" name="name" class="form-control" ng-model="shop.newItem.name" required/>
+            <input type="text"
+              name="name"
+              class="form-control"
+              ng-model="shop.newItem.name"
+              required/>
           </div>
           <!-- PRICE -->
           <div class="form-group">
             <label>Price</label>
-            <input type="text" name="price" class="form-control" ng-model="shop.newItem.price" required/>
+            <input type="text"
+            name="price"
+            class="form-control"
+            ng-model="shop.newItem.price"
+            required/>
           </div>
             <!-- DISCOUNT -->
           <div class="form-group">
             <label>Discount</label>
-            <input type="text" class="form-control" ng-model="shop.newItem.discount" required/>
+            <input type="text"
+            name="discount"
+            class="form-control"
+            ng-model="shop.newItem.discount"
+            required/>
           </div>
           <!-- QUANTITY -->
           <div class="form-group">
             <label>Quantity</label>
-            <input type="text" class="form-control" ng-model="shop.newItem.quantity" required/>
+            <input type="text"
+            name="quantity"
+            class="form-control"
+            ng-model="shop.newItem.quantity"
+            required/>
           </div>
           <!-- COLOR -->
           <div class="form-group">
             <label>Color</label>
-            <input type="text" class="form-control" ng-model="shop.newItem.color" required/>
+            <input type="text"
+            name="color"
+            class="form-control"
+            ng-model="shop.newItem.color"
+            required/>
           </div>
 
-          <input type="submit" id="submit" value="Submit"/>
+          <input type="submit" id="submit" value="Submit" ng-disabled="shop.newItemForm.$invalid"/>
         </form>
       </div>
 
