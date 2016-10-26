@@ -14,11 +14,15 @@
       <table>
         <thead>
           <tr class='table-header'>
-            <th>Name</th><th>Price</th><th>Quantity</th><th>{{shop.locale === 'US' ? 'Color' : 'Colour'}}</th><th>Edit</th>
+            <th ng-click="shop.sortBy('name')">Name</th>
+            <th ng-click="shop.sortBy('price - discount')">Price</th>
+            <th ng-click="shop.sortBy('quantity')">Quantity</th>
+            <th ng-click="shop.sortBy('color')">{{shop.locale === 'US' ? 'Color' : 'Colour'}}</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in shop.allItems" ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
+          <tr ng-repeat="item in shop.allItems | orderBy: shop.columnSort : shop.reverse " ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
 
             <td ng-hide="editing" class="item-name">{{shop.itemName(item)}}</td>
             <td ng-show="editing" ng-blur="editing = false;"><input ng-change="item.edited = true" ng-model="item.name" type="text"></input></td>

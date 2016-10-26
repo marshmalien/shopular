@@ -20,7 +20,8 @@
 
     this.locale = 'US';
     this.tax = 1.0575;
-
+    this.columnSort = "price-discount";
+    this.reverse = true;
 
     this.itemName = function(item) {
       if (this.locale === 'UK' && item.name === 'waste basket') {
@@ -71,6 +72,9 @@
       this.newItemForm.$setPristine();
     };
 
-
+    this.sortBy = function(columnSort) {
+      this.columnSort = columnSort;
+      this.reverse = !this.reverse;
+    };
   });
 })();
