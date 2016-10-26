@@ -102,6 +102,7 @@ img {
 }
 #add-button {
   position: absolute;
+  cursor: pointer;
   top: 0%;
   left: 10%;
   content: url('../../images/add.png');
@@ -117,6 +118,7 @@ input {
   margin-top: -5vh;
   position: absolute;
   width: 100%;
+  cursor: pointer;
   .modal-content {
     background: gainsboro;
     display: flex;
@@ -136,6 +138,7 @@ input {
       top: 13%;
       width: 25px;
       z-index: 999;
+      cursor: pointer;
     }
     form {
       margin: 3% 15%;
