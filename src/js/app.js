@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('shopular', [])
-    .controller('shopCtrl', function() {
+    .controller('shopCtrl',  function($filter) {
     this.allItems = [
       { "id": 2957, "name": "widget", "price": 32, "quantity": 203, "color": "red", "discount": 31 },
       { "id": 89274, "name": "golf club", "price": 98, "quantity": 10, "color": "black", "discount": 0 },
@@ -30,10 +30,11 @@
     };
 
     this.priceOf = function(item) {
+      var amount = (item.price - item.discount) * this.tax;
       if (this.locale === 'UK') {
-        return parseFloat((item.price - item.discount) * this.tax).toFixed(2);
+        return $filter('currency')(amount, "\u00A3", 2);
       } else {
-        return parseFloat((item.price - item.discount) * this.tax * 1.5).toFixed(2);
+        return  $filter('currency')(amount * 1.5, "$", 2);
       }
     };
 
@@ -69,5 +70,7 @@
       };
       this.newItemForm.$setPristine();
     };
+
+
   });
 })();
