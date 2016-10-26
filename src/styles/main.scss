@@ -112,21 +112,30 @@ input {
   width: 80%;
 }
 #new-item-modal {
-  position: absolute;
-  width: 100%;
+  background: rgba(245, 247, 248, .8);
   height: 110vh;
   margin-top: -5vh;
-  background: rgba(245, 247, 248, .8);
+  position: absolute;
+  width: 100%;
   .modal-content {
-    width: 70vw;
     background: gainsboro;
-    margin: 10vh 15vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10vh 15vw;
+    width: 70vw;
     h1 {
-      width: 100%;
       margin-top: 3%;
+      width: 100%;
+    }
+    #exit-button {
+      content: url(../../images/exit.png);
+      height: 25px;
+      position: absolute;
+      right: 17%;
+      top: 13%;
+      width: 25px;
+      z-index: 999;
     }
     form {
       margin: 3% 15%;
@@ -136,30 +145,30 @@ input {
         background: rgba(195, 0, 17, 0.72);
       }
       label {
+        font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         font-weight: bold;
         text-transform: uppercase;
-        font-family: 'Montserrat', sans-serif;
       }
       input {
-        width: 100%;
         border-style: none;
         font-size: 14px;
         height: 25px;
         margin: 5px;
         outline: none;
         text-align: center;
+        width: 100%;
       }
       #submit {
+        background: $dark-grey;
+        border-style: none;
+        color: white;
+        font-size: 15px;
         height: 40px;
         margin: 20px;
-        background: $dark-grey;
-        color: white;
-        border-style: none;
-        width: 60%;
         text-transform: uppercase;
-        font-size: 15px;
         transition: all 1s ease;
+        width: 60%;
         &:hover {
           background: #204c47;
           transform: scale(1.1);

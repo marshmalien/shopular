@@ -12,6 +12,7 @@
       <div id="new-item-modal" ng-show="showForm">
         <div class="modal-content">
           <h1>Add New Item</h1>
+          <div ng-click="showForm = false;" id="exit-button"></div>
             <form name="shop.newItemForm" ng-submit="shop.addNewItem()" novalidate>
               <!-- NAME -->
               <div class="form-group" >
