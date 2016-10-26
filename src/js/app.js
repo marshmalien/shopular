@@ -54,6 +54,7 @@
       }
     };
 
+
     this.addNewItem = function() {
       this.allItems.push({
         name: this.newItem.name,

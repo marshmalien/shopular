@@ -9,15 +9,79 @@
   </head>
   <body ng-controller="shopCtrl as shop">
     <main>
-      <div ng-click="shop.toggleLocale()" id="currency-button"></div>
-      <h1>Shopular</h1>
+      <div id="new-item-modal" ng-show="showForm">
+        <div class="modal-content">
+          <h1>Add New Item</h1>
+            <form name="shop.newItemForm" ng-submit="shop.addNewItem()" novalidate>
+              <!-- NAME -->
+              <div class="form-group" >
+                <label>Name</label>
+                <input type="text"
+                name="name"
+                class="form-control"
+                ng-minlength="1"
+                ng-model="shop.newItem.name"
+                required/>
+              </div>
+              <!-- PRICE -->
+              <div class="form-group">
+                <label>Price</label>
+                <input type="number"
+                min="0"
+                name="price"
+                class="form-control"
+                ng-model="shop.newItem.price"
+                required/>
+              </div>
+              <!-- DISCOUNT -->
+              <div class="form-group">
+                <label>Discount</label>
+                <input type="number"
+                min="0"
+                name="discount"
+                class="form-control"
+                ng-model="shop.newItem.discount"
+                required/>
+              </div>
+              <!-- QUANTITY -->
+              <div class="form-group">
+                <label>Quantity</label>
+                <input type="number"
+                min="0"
+                name="quantity"
+                class="form-control"
+                ng-model="shop.newItem.quantity"
+                required/>
+              </div>
+              <!-- COLOR -->
+              <div class="form-group">
+                <label>Color</label>
+                <input type="text"
+                name="color"
+                class="form-control"
+                ng-model="shop.newItem.color"
+                required/>
+              </div>
+
+              <input type="submit"
+              id="submit"
+              value="Submit"
+              ng-click="showForm=false;"
+              ng-disabled="shop.newItemForm.$invalid"/>
+            </form>
+          </div>
+        </div>
+
+      <div ng-click="shop.toggleLocale()" id="currency-button" ng-hide="showForm"></div>
+      <div ng-click="showForm = !showForm;" id="add-button" ng-hide="showForm"></div>
+      <h1 ng-hide="showForm">Shopular</h1>
       <table>
         <thead>
           <tr class='table-header'>
-            <th ng-click="shop.sortBy('name')">Name</th>
-            <th ng-click="shop.sortBy('price - discount')">Price</th>
-            <th ng-click="shop.sortBy('quantity')">Quantity</th>
-            <th ng-click="shop.sortBy('color')">{{shop.locale === 'US' ? 'Color' : 'Colour'}}</th>
+            <th ng-click="shop.sortBy('name')"><h2>Name</h2></th>
+            <th ng-click="shop.sortBy('price - discount')"><h2>Price</h2></th>
+            <th ng-click="shop.sortBy('quantity')"><h2>Quantity</h2></th>
+            <th ng-click="shop.sortBy('color')"><h2>{{shop.locale === 'US' ? 'Color' : 'Colour'}}</h2></th>
             <th>Edit</th>
           </tr>
         </thead>
@@ -40,61 +104,6 @@
         </tbody>
       </table>
 
-      <div>
-        <form name="shop.newItemForm" ng-submit="shop.addNewItem()" novalidate>
-          <!-- NAME -->
-          <div class="form-group" >
-            <label>Name</label>
-            <input type="text"
-              name="name"
-              class="form-control"
-              ng-minlength="1"
-              ng-model="shop.newItem.name"
-              required/>
-          </div>
-          <!-- PRICE -->
-          <div class="form-group">
-            <label>Price</label>
-            <input type="number"
-            min="0"
-            name="price"
-            class="form-control"
-            ng-model="shop.newItem.price"
-            required/>
-          </div>
-            <!-- DISCOUNT -->
-          <div class="form-group">
-            <label>Discount</label>
-            <input type="number"
-            min="0"
-            name="discount"
-            class="form-control"
-            ng-model="shop.newItem.discount"
-            required/>
-          </div>
-          <!-- QUANTITY -->
-          <div class="form-group">
-            <label>Quantity</label>
-            <input type="number"
-            min="0"
-            name="quantity"
-            class="form-control"
-            ng-model="shop.newItem.quantity"
-            required/>
-          </div>
-          <!-- COLOR -->
-          <div class="form-group">
-            <label>Color</label>
-            <input type="text"
-            name="color"
-            class="form-control"
-            ng-model="shop.newItem.color"
-            required/>
-          </div>
-
-          <input type="submit" id="submit" value="Submit" ng-disabled="shop.newItemForm.$invalid"/>
-        </form>
-      </div>
 
     </main>
     <script src="src/js/vendor/jquery-3.1.1.min.js"></script>
