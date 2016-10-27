@@ -1,0 +1,68 @@
+#new-item-modal {
+  background: rgba(245, 247, 248, .8);
+  height: 110vh;
+  margin-top: -5vh;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+  .modal-content {
+    background: gainsboro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10vh 15vw;
+    width: 70vw;
+    h1 {
+      margin-top: 3%;
+      width: 100%;
+    }
+    #exit-button {
+      content: url(../../images/exit.png);
+      height: 25px;
+      position: absolute;
+      right: 17%;
+      top: 13%;
+      width: 25px;
+      z-index: 999;
+      cursor: pointer;
+    }
+    form {
+      margin: 3% 15%;
+      width: 70%;
+      text-align: center;
+      .ng-invalid.ng-dirty {
+        background: rgba(195, 0, 17, 0.72);
+      }
+      label {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      input {
+        border-style: none;
+        font-size: 14px;
+        height: 25px;
+        margin: 5px;
+        outline: none;
+        text-align: center;
+        width: 100%;
+      }
+      #submit {
+        background: $dark-grey;
+        border-style: none;
+        color: white;
+        font-size: 15px;
+        height: 40px;
+        margin: 20px;
+        text-transform: uppercase;
+        transition: all 1s ease;
+        width: 60%;
+        &:hover {
+          background: #204c47;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
