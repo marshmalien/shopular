@@ -63,7 +63,7 @@
                 ng-model="shop.newItem.color"
                 required/>
               </div>
-
+              <!-- SUBMIT -->
               <input type="submit"
               id="submit"
               value="Submit"
@@ -90,16 +90,16 @@
           <tr ng-repeat="item in shop.allItems | orderBy: shop.columnSort : shop.reverse " ng-class="{'odd-row': !($index%2), 'even-row': ($index%2)}">
 
             <td ng-hide="editing" class="item-name">{{shop.itemName(item)}}</td>
-            <td ng-show="editing" ng-blur="editing = false;"><input ng-change="item.edited = true" ng-model="item.name" type="text"></input></td>
+            <td ng-show="editing"><input ng-blur="editing = false;" ng-change="item.edited = true" ng-model="item.name" type="text"></input></td>
 
             <td ng-hide="editing" class="item-price">{{shop.priceOf(item)}}<img class="discount-icon" ng-show="{{shop.isDiscounted(item)}}"></img></td>
-            <td ng-show="editing" ng-blur="editing = false;"><input  ng-model="item.price" type="text"></input></td>
+            <td ng-show="editing"><input ng-blur="editing = false;" ng-model="item.price" type="text"></input></td>
 
             <td ng-hide="editing" class="item-quantity">{{item.quantity}}</td>
-            <td ng-show="editing" ng-blur="editing = false;"><input ng-model="item.quantity" type="text"></input></td>
+            <td ng-show="editing"><input ng-blur="editing = false;" ng-model="item.quantity" type="text"></input></td>
 
             <td ng-hide="editing" class="item-color">{{item.color}}
-            <td ng-show="editing" ng-blur="editing = false;"><input ng-model="item.color" type="text"></input></td>
+            <td ng-show="editing"><input ng-blur="editing = false;" ng-model="item.color" type="text"></input></td>
             <td ng-click="editing = !editing"><img class="edit-icon"></img></td>
           </tr>
         </tbody>
