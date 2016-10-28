@@ -12,12 +12,12 @@
   }
 }
 #add-button {
-  content: url('../../images/add.png');
+  content: url(../../images/add.png);
   cursor: pointer;
-  height: 45px;
-  left: 10%;
-  position: absolute;
-  top: 0%;
+  height: 35px;
+  position: relative;
+  margin: 5px;
+  width: 35px;
 }
 img {
   &.discount-icon {
