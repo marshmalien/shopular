@@ -1,6 +1,7 @@
 @import 'partials/variables';
 @import 'partials/fonts';
 @import 'partials/buttons';
+@import 'partials/nav';
 @import 'partials/modal';
 
 
@@ -66,4 +67,7 @@ tbody {
 input {
   height: 100%;
   width: 80%;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }

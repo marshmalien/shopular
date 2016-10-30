@@ -5,6 +5,7 @@ angular.module('shopular').controller('shopCtlr',  function($filter, storage) {
   this.columnSort = "price-discount";
   this.reverse = true;
   this.editing = false;
+  this.showForm = false;
 
   this.itemName = function(item) {
     if (this.locale === 'UK' && item.name === 'waste basket') {

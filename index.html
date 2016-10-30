@@ -5,19 +5,28 @@
     <title>Shopular</title>
     <link rel="stylesheet" href="lib/styles/reset.css">
     <link rel="stylesheet" href="lib/styles/main.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre|Montserrat|Lobster|Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre|Montserrat|Lobster|Pacifico|Crimson+Text" rel="stylesheet">
   </head>
-  <body>
+  <body class="ng-cloak" ng-controller="shopCtlr as shop">
+
     <nav ng-controller="adminCtlr as admin">
-      <input type="text" ng-model="admin.user.username"></input>
-      <input type="submit" ng-click="admin.user.login"></input>
+      <div class="nav-buttons">
+        <div ng-click="shop.toggleLocale()" id="currency-button" ng-hide="shop.showForm"></div>
+        <div ng-click="shop.showForm = !shop.showForm;" id="add-button" ng-hide="shop.showForm || !admin.currentUser"></div>
+      </div>
+
+      <h3><span ng-show="admin.currentUser">Welcome back {{admin.currentUser.name}}! {{admin.currentUser.loginTime | date:'MMM dd - h:mm a'}}</span></h3>
+      <form ng-submit="admin.login()" id="admin-login">
+        <input type="text" placeholder="Username" ng-model="admin.inputName"></input>
+        <button type="submit">Login</button>
+      </form>
     </nav>
 
-    <main ng-cloak ng-controller="shopCtlr as shop" >
-      <div id="new-item-modal" ng-show="showForm">
+    <main>
+      <div id="new-item-modal" ng-show="shop.showForm">
         <div class="modal-content">
           <h1>Add New Item</h1>
-          <div ng-click="showForm = false;" id="exit-button"></div>
+          <div ng-click="shop.showForm = false;" id="exit-button"></div>
             <form name="shop.newItemForm" ng-submit="shop.addNewItem()" novalidate>
               <!-- NAME -->
               <div class="form-group" >
@@ -72,15 +81,13 @@
               <input type="submit"
               id="submit"
               value="Submit"
-              ng-click="showForm=false;"
+              ng-click="shop.showForm=false;"
               ng-disabled="shop.newItemForm.$invalid"/>
             </form>
           </div>
         </div>
 
-      <div ng-click="shop.toggleLocale()" id="currency-button" ng-hide="showForm"></div>
-      <div ng-click="showForm = !showForm;" id="add-button" ng-hide="showForm"></div>
-      <h1 ng-hide="showForm">Shopular</h1>
+      <h1 ng-hide="shop.showForm">Shopular</h1>
       <table>
         <thead>
           <tr class='table-header'>

@@ -1,12 +1,14 @@
 #currency-button {
   content: url('../../images/currency.png');
   cursor: pointer;
-  height: 50px;
-  position: absolute;
-  right: 10%;
-  top: 0%;
+  float: right;
+  height: 40px;
+  justify-content: center;
+  margin-right: 10%;
+  position: relative;
   transform-style: preserve-3d;
   transition: all 1s ease;
+  width: 40px;
   &.spin {
     transform: rotateX(180deg);
   }

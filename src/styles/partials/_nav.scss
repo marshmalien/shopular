@@ -1,0 +1,38 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(254, 234, 230);
+  padding: 0 20px;
+  h3 {
+    align-self: center;
+    font-family: 'Crimson Text', serif;
+    font-size: 23px;
+  }
+  .nav-buttons {
+    width: 300px;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: row;
+  }
+  form {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    flex-shrink: 1;
+    input {
+      align-self: center;
+      height: 25px;
+      margin-right: 5px;
+      border-style: none;
+      padding-left: 15px;
+      outline: none;
+    }
+    button {
+      border-style: none;
+      height: 25px;
+      width: 60px;
+      align-self: center;
+    }
+  }
+}

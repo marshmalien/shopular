@@ -1,16 +1,17 @@
 angular.module('shopular').factory('userMgmt', function() {
-  var _currentUser = null;
+  var user = null;
 
   return {
     login: function(username) {
-      _currentUser = {
+      user = {
+        name: username,
         loginTime: new Date()
       }
-      return _currentUser;
+      return user;
     },
-    // currentUser: function() {
-    //   return _currentUser;
-    // }
+    currentUser: function() {
+      return user;
+    }
   }
 
 });
