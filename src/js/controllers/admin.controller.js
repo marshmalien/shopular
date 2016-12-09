@@ -5,6 +5,5 @@ angular.module('shopular').controller('adminCtlr', ['userMgmt', function(userMgm
   this.login = function() {
     this.currentUser = userMgmt.login(this.inputName);
     this.inputName = "";
-  }
-}]);
- 
+  };
+}]); 
