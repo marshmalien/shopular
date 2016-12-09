@@ -1,5 +1,5 @@
 {
-  "name": "Shopular",
+  "name": "shopular",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
@@ -15,5 +15,16 @@
   "author": "Marliana Lara",
   "license": "ISC",
   "keywords": [],
-  "description": "##1. Install Node [www.nodejs.com](http://www.nodejs.com)"
+  "description": "##1. Install Node [www.nodejs.com](http://www.nodejs.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marshmalien/shopular.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marshmalien/shopular/issues"
+  },
+  "homepage": "https://github.com/marshmalien/shopular#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  }
 }

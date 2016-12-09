@@ -6,7 +6,9 @@ body {
 table {
   width: 80vw;
   margin: 0 10vw;
-  border: 1px double $dark-grey;
+  border-top: 1px double $dark-grey;
+  border-left: 1px double $dark-grey;
+  border-right: 1px double $dark-grey;
   outline: 2px solid $dark-grey;
   outline-offset: 5px;
   thead {
@@ -22,7 +24,7 @@ table {
       width: 70%;
       left: 15%;
       height: 1px;
-      background: grey;
+      background: $dark-grey;
     }
     th {
       height: 40px;
