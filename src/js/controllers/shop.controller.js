@@ -1,4 +1,4 @@
-angular.module('shopular').controller('shopCtlr',  function($filter, storage) {
+angular.module('shopular').controller('shopCtlr', function($filter, storage) {
   this.allItems = storage.getItems() || [];
   this.locale = 'US';
   this.tax = 1.0575;
@@ -19,7 +19,7 @@ angular.module('shopular').controller('shopCtlr',  function($filter, storage) {
     if (this.locale === 'UK') {
       return $filter('currency')(amount, "\u00A3", 2);
     } else {
-      return  $filter('currency')(amount * 1.5, "$", 2);
+      return $filter('currency')(amount * 1.5, "$", 2);
     }
   };
 
@@ -39,6 +39,7 @@ angular.module('shopular').controller('shopCtlr',  function($filter, storage) {
   };
 
   this.addNewItem = function() {
+    console.log('add new');
     this.allItems.push({
       name: this.newItem.name,
       price: this.newItem.price,

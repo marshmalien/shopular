@@ -6,12 +6,12 @@ angular.module('shopular').factory('userMgmt', function() {
       user = {
         name: username,
         loginTime: new Date()
-      }
+      };
       return user;
     },
     currentUser: function() {
       return user;
     }
-  }
+  };
 
 });

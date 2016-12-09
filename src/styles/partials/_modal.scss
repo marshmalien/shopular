@@ -1,10 +1,15 @@
 #new-item-modal {
   background: rgba(245, 247, 248, .8);
-  height: 110vh;
-  margin-top: -5vh;
   position: absolute;
-  width: 100%;
   cursor: pointer;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  &.ng-hide {
+    opacity: 0;
+  }
   .modal-content {
     background: gainsboro;
     display: flex;
@@ -65,4 +70,13 @@
       }
     }
   }
+}
+
+#new-item-modal.ng-hide-remove,
+#new-item-modal.ng-hide-remove-active {
+  transform: translateY(0);
+}
+#new-item-modal.ng-hide-add,
+#new-item-modal.ng-hide-add-active {
+
 }
