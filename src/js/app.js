@@ -1,4 +1,4 @@
 (function() {
   'use strict';
-  angular.module('shopular', []);
+  angular.module('shopular', ['ngStorage']);
 })();

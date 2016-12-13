@@ -1,13 +1,17 @@
-angular.module('shopular').factory('storage',["$window", function($window) {
-  var keyName = "shopularItems";
+angular.module('shopular').factory('storage', ["$localStorage", function($localStorage) {
+
+  $localStorage = $localStorage.$default({
+    items: []
+  });
+
   return {
     // gets items from local storage
     getItems: function() {
-      return JSON.parse($window.localStorage.getItem(keyName));
+      return $localStorage.items;
     },
     // sets list of items that are stringified to a key name
     setItems: function(listOfItems) {
-      $window.localStorage.setItem(keyName, JSON.stringify(listOfItems));
+      $localStorage.items.push(listOfItems)
     },
     // pushes value to storedItems array then sets the items to localstorage
     addItem: function(value) {
