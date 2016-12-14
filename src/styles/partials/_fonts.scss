@@ -7,9 +7,9 @@ h1 {
   z-index: 5;
 }
 h2 {
+  color: #333;
   transition: all .5s ease;
   &:hover {
     color: $hover-red;
-    transform: scale(1.3);
   }
 }
